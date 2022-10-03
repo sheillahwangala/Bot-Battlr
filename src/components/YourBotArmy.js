@@ -1,7 +1,7 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function YourBotArmy() {
+function YourBotArmy({ botArmy, setBotArmy }) {
   //your bot army code here...
   const botArmyCollection = botArmy.map((bot) => (
     <BotCard key={bot.id} bot={bot} botArmy={botArmy} setBotArmy={setBotArmy} />
