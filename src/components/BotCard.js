@@ -11,20 +11,21 @@ const botTypeClasses = {
 
 function BotCard({ bot, botArmy, setBotArmy, setBotData }) {
 
-  function handleDelete () {
+  function handleDelete() {
     fetch(`http://localhost:8002/bots/${bot.id}`, {
       method: "DELETE",
     })
-    .then((reponse) => Response.json())
-    .then(() => {
-      setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id));
-      alert("Bot Deleted");
-    });
+      .then((response) => response.json())
+      .then(() => {
+        setBotData((bots) => bots.filter((botArm) => botArm.id !== bot.id));
+        alert("Bot Deleted");
+      });
   }
 
-  function handleBotClick () {
+  function handleBotClick() {
+    console.log("loading...")
     if (botArmy.find((botArm) => botArm.id === bot.id)) {
-      setBotArmy((army) => army.filter((botArm) => botArm.id !== bot.id ));
+      setBotArmy((army) => army.filter((botArm) => botArm.id !== bot.id));
     }
     else {
       setBotArmy((army) => [...army, bot]);
